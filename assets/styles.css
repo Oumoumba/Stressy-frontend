@@ -1,0 +1,82 @@
+.card {
+  transition: all .25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.35);
+}
+.kpi:hover {
+  background: rgba(255,255,255,.05);
+}.top-nav .logo { font-weight:700; font-size:18px; }
+.top-nav .nav-links a {
+  color:var(--muted); text-decoration:none; margin-left:16px; font-size:14px;
+}
+.top-nav .nav-links a:hover {
+  color:var(--ink);
+}.card {
+  transition: all .25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.35);
+}
+.kpi:hover {
+  background: rgba(255,255,255,.05);
+}:root{
+  --bg:#0e0f12; --card:#14161a; --ink:#e7ecf2; --muted:#9aa3ad; --accent:#7dd3fc;
+  --ok:#22c55e; --warn:#f59e0b; --bad:#ef4444;
+}
+
+/* Base + sidebar */
+html, body, [data-testid="stAppViewContainer"]{ background:var(--bg); color:var(--ink); }
+section[data-testid="stSidebar"]{ background:#0b0c0f; border-right:1px solid #181b20; }
+
+/* Sticky header */
+.app-header{ position:sticky; top:0; z-index:5; backdrop-filter:blur(6px);
+  background:linear-gradient(180deg, rgba(14,15,18,.85) 0%, rgba(14,15,18,0) 100%);
+  padding:10px 2px 8px; margin-bottom:4px;
+}
+.app-title{ font-size:26px; font-weight:700; letter-spacing:.2px; }
+.app-sub{ color:var(--muted); font-size:13px; margin-top:2px; }
+
+/* KPI cards */
+.kpi{ background:var(--card); border:1px solid #1b1f25; border-radius:16px; padding:14px; }
+.kpi .label{ color:var(--muted); font-size:12px; }
+.kpi .value{ font-size:22px; font-weight:700; margin-top:2px; }
+
+/* Status badge */
+.badge{ display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border-radius:9999px; background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+}
+.dot{ width:8px; height:8px; border-radius:50%; display:inline-block; }
+
+/* Generic card */
+.card{ background:var(--card); border:1px solid #1b1f25; border-radius:16px; padding:12px; }
+
+/* Bottom bar */
+.bottom-bar{ margin-top:10px; display:flex; gap:10px; align-items:center; justify-content:flex-end; }
+.bottom-bar .hint{ color:var(--muted); font-size:12px; margin-right:auto; }
+
+/* Light theme toggle via .light on <html> (set by inject_theme_class) */
+.light body, .light [data-testid="stAppViewContainer"]{ background:#f7f8fa; color:#0b0c0f; }
+.light .app-header{ background:linear-gradient(180deg, rgba(247,248,250,.92) 0%, rgba(247,248,250,0) 100%); }
+.light section[data-testid="stSidebar"]{ background:#fff; border-right:1px solid #e6e8ec; }
+.light .kpi, .light .card{ background:#fff; border:1px solid #e6e8ec; }
+.light .app-sub, .light .hint{ color:#5c6370; }
+
+/* Streamlit plotly container spacing tweak */
+.block-container{ padding-top: 0.8rem; }
+.top-nav {
+  display:flex; justify-content:space-between; align-items:center;
+  background:rgba(20,22,26,.8); backdrop-filter:blur(8px);
+  padding:10px 16px; border-bottom:1px solid #1b1f25;
+  position:sticky; top:0; z-index:100;
+}
+.top-nav .logo { font-weight:700; font-size:18px; }
+.top-nav .nav-links a {
+  color:var(--muted); text-decoration:none; margin-left:16px; font-size:14px;
+}
+.top-nav .nav-links a:hover {
+  color:var(--ink);
+}
