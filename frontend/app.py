@@ -116,10 +116,10 @@ current_stress = float(df["stress_level"].iloc[-1])
 with col1:
     st.metric("Current Stress Level", f"{current_stress:.2f}")
 
-if len(df) > 60:
-    delta_1h = df["stress_level"].iloc[-1] - df["stress_level"].iloc[-60]
+if len(df) >=2:
+    delta_1h = df["stress_level"].iloc[-1] - df["stress_level"].iloc[-2]
 else:
-    delta_1h = df["stress_level"].iloc[-1] - df["stress_level"].iloc[0]
+    delta_1h = 0.0
 
 with col2:
     st.metric("1-hour change (approx.)", f"{delta_1h:+.2f}")
