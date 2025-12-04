@@ -3,7 +3,7 @@ import numpy as np
 
 # Load the trained model
 model = joblib.load('best_stress_model.pkl')
-scaler = joblib.load('scaler.pkl')
+scaler = joblib.load('../data/scaler.pkl')
 # Get input data from command line arguments
 input_data = {
     'snoring range': 85.76,
@@ -46,3 +46,4 @@ prediction = model.predict(fFeatures)
 
 # Output the prediction
 print("Predicted Stress Level:", prediction[0])
+
