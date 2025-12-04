@@ -4,7 +4,7 @@ import joblib
 import numpy as np
 
 app = FastAPI(title="Stress Forecast Backend")
-model = joblib.load("best_stress_model.pkl")
+model = joblib.load("../data/best_stress_model.pkl")
 scaler = joblib.load("../data/scaler.pkl")
 
 class StressRequest(BaseModel):
