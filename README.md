@@ -93,7 +93,8 @@ Streamlit → FastAPI → Model → JSON Response → Frontend Visualization
 2.	Make sure it is reachable at 127.0.0.1:8000
 3.	Start frontend next
 4.	The frontend automatically sends requests to FastAPI
-5.	Stress prediction appears in the UI
+5.	upload a csv file (found in the data folder)
+6.	Stress prediction appears in the UI
 
 ## 8. REFERENCES
 
