@@ -5,6 +5,7 @@ import numpy as np
 
 app = FastAPI(title="Stress Forecast Backend")
 model = joblib.load("best_stress_model.pkl")
+scaler = joblib.load("scaler.pkl")
 
 class StressRequest(BaseModel):
     features: list[float]
@@ -22,7 +23,17 @@ def root():
 
 @app.post("/predict", response_model=StressResponse)
 def predict(req: StressRequest):
-    predicted_level = int(model.predict([req.features])[0])
+    features = np.array(req.features).reshape(1, -1)
+
+    main_features = features[:, :8]
+    missing_features = features[:, 8:]
+
+    main_features_scaled = scaler.transform(main_features)
+
+    input_features = np.hstack([main_features_scaled, missing_features])
+
+
+    predicted_level = int(model.predict(input_features)[0])
     
     # Return only the predicted stress level
     return StressResponse(predicted_level=predicted_level)
