@@ -3,19 +3,18 @@ import numpy as np
 
 # Load the trained model
 model = joblib.load('best_stress_model.pkl')
-
+scaler = joblib.load('scaler.pkl')
 # Get input data from command line arguments
 input_data = {
-    'snoring range': 15,
-    'respiration rate': 18,
-    'body temperature': 36.8,
-    'limb movement': 5,
-    'blood oxygen': 98,
-    'eye movement': 10,
-    'hours of sleep': 7,
-    'heart rate': 70,
+    'snoring range': 85.76,
+    'respiration rate': 23.54,
+    'body temperature': 90.77,
+    'limb movement': 13.92,
+    'blood oxygen': 88.77,
+    'eye movement': 96.92,
+    'hours of sleep': 0.77,
+    'heart rate': 68.84,
     
-    # Missing value indicators (0 if data exists, 1 if missing)
     'body temperature_missing': 0,
     'limb movement_missing': 0,
     'blood oxygen_missing': 0,
@@ -33,16 +32,17 @@ features = np.array([[input_data['snoring range'],
                       input_data['eye movement'],
                       input_data['hours of sleep'],
                       input_data['heart rate'],
-                      input_data.get('body temperature_missing', 0),  # Add missing value indicator
-                      input_data.get('limb movement_missing', 0),     # Add missing value indicator
-                      input_data.get('blood oxygen_missing', 0),      # Add missing value indicator
-                      input_data.get('eye movement_missing', 0),      # Add missing value indicator
-                      input_data.get('hours of sleep_missing', 0),    # Add missing value indicator
-                      input_data.get('heart rate_missing', 0)         # Add missing value indicator
                      ]])
-
+missing_features = np.array([[input_data['body temperature_missing'],
+                              input_data['limb movement_missing'],
+                              input_data['blood oxygen_missing'],
+                              input_data['eye movement_missing'],
+                              input_data['hours of sleep_missing'],
+                              input_data['heart rate_missing']]])
+features = scaler.transform(features)
+fFeatures = np.concatenate([features, missing_features], axis=1)
 # Make prediction
-prediction = model.predict(features)
+prediction = model.predict(fFeatures)
 
 # Output the prediction
 print("Predicted Stress Level:", prediction[0])
