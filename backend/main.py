@@ -32,7 +32,7 @@ def predict(req: StressRequest):
 
     input_features = np.hstack([main_features_scaled, missing_features])
 
-
+    print("Number of features:", input_features.shape[1])
     predicted_level = int(model.predict(input_features)[0])
     
     # Return only the predicted stress level
