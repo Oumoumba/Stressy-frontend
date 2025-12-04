@@ -35,5 +35,4 @@ def predict(req: StressRequest):
     print("Number of features:", input_features.shape[1])
     predicted_level = int(model.predict(input_features)[0])
     
-    # Return only the predicted stress level
     return StressResponse(predicted_level=predicted_level)
