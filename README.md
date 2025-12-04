@@ -7,7 +7,7 @@ Semester: Fall 2025
 
 ## 1. ABSTRACT
 
-This project implements a Stress Forecasting System that predicts user stress levels based on physiological sensor data. The system is built using a FastAPI backend for machine-learning inference and a Streamlit frontend that provides a modern Fitbit-style interface. The application is lightweight, modular, and easy for peers to clone and run locally.
+This project implements a Stress Forecasting System that predicts user stress levels based on User input data. The system is built using a FastAPI backend for machine-learning inference and a Streamlit frontend that provides a modern Fitbit-style interface. The application is lightweight, modular, and easy for peers to clone and run locally.
 
 The goal of the project is to allow users to monitor predicted stress levels in real time while also giving developers a clean API and UI framework to extend with additional features.
 
@@ -96,7 +96,12 @@ Streamlit → FastAPI → Model → JSON Response → Frontend Visualization
 5.	upload a csv file (found in the data folder)
 6.	Stress prediction appears in the UI
 
-## 8. REFERENCES
+## 8. Core Features
+•	Predicts stress level at the moment
+•	Predicts future stress level
+•	Communicates data into graphing analysis
+
+## 9. REFERENCES
 
 [1] T. Tiangolo, “FastAPI Documentation,” https://fastapi.tiangolo.com.  
 [2] Streamlit Inc., “Streamlit Documentation,” https://docs.streamlit.io.  
