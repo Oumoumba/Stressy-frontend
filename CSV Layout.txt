@@ -1,0 +1,15 @@
+How to set up your CSV file
+
+
+Top of the file will he the column headers, Copy below
+snoring range,respiration rate,body temperature,limb movement,blood oxygen,eye movement,hours of sleep,heart rate,body temperature_m,limb movement_m,blood oxygen_m,eye movement_m,hours of sleep_m,heart rate_m
+
+
+first 8 rows represent readings from your body, the last 6 are flags for 6 of the first 8 are NULL
+Snoring range and respiration rate cannot be null
+
+
+ex of a CSV file:
+
+snoring range,respiration rate,body temperature,limb movement,blood oxygen,eye movement,hours of sleep,heart rate,body temperature_m,limb movement_m,blood oxygen_m,eye movement_m,hours of sleep_m,heart rate_m
+14,17,36.7,4,99,9,6,68,0,0,0,0,0,0
